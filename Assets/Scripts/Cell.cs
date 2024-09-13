@@ -8,30 +8,19 @@ public class Cell : MonoBehaviour
     //Cells have the following attributes:
     //Color
     //Alive 
-    //Documents
-        //Need to decide if documents are their own object that is assigned to a cell, or if a document's contents come from a cell's attributes
-    //Sprite
+    //May need more if research shows they do
+    //Documents are an associated object with the same variables
 
-    public GameObject cell;
     string color;
-    bool alive;    
+    bool alive;
+    string protein;
 
     //When the cell generator spawns a cell, it can assign these attributes randomly
-    public Cell(GameObject sprite, string c, bool a)
+    public Cell(string c, bool a, string p)
     {
-        cell = sprite;
         color = c;
         alive = a;
+        p = protein;
     }
-    void Start()
-    {
-        alive = true;
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }
