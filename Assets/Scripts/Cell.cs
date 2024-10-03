@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cell : MonoBehaviour
+public class Cell: MonoBehaviour
 {
     //Cells have the following attributes:
     //Color
@@ -18,11 +18,11 @@ public class Cell : MonoBehaviour
     string[] proteins;
     int Age;
     bool Dividing;// May remove later currently meant for showcasing division in real time
-    string Destination;
+    Locations Destination;
 
 
     //When the cell generator spawns a cell, it can assign these attributes randomly
-    public Cell(bool can, string c, bool a, string[] p, int age, bool d, string dest)
+    public Cell(bool can, string c, bool a, string[] p, int age, bool d, Locations dest)
     {
         Cancer = can;
         color = c;
@@ -47,7 +47,30 @@ public class Cell : MonoBehaviour
         proteins = new string[0];
         Age = 0;
         Dividing = false;
-        Destination = "Empty";
+        Destination = Locations.Brain;
     }
-    
+    public bool GetCancerStatus()
+    {
+        return Cancer;
+    }
+    public CellDocuments GetCellDocuments()
+    {
+        return this.CD;
+    }
+    public void UpdateCell(bool can, string c, bool a, string[] p, int age, bool d, Locations dest)
+    {
+        Cancer = can;
+        color = c;
+        alive = a;
+        proteins = new string[p.Length];
+        int temp = 0;
+        foreach (string s in p)
+        {
+            proteins[temp] = s;
+            temp++;
+        }
+        Age = age;
+        Dividing = d;
+        Destination = dest;
+    }
 }
