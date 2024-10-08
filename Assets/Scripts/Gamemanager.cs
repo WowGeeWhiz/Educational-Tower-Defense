@@ -5,6 +5,7 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
+using UnityEngine.UI;
 
 public enum Locations { Brain, Liver, Lungs, Bones, Kidney };
 
@@ -23,6 +24,7 @@ public class GameManager : MonoBehaviour
 
     //Prefab of cecll
     public Cell cellTemplate;
+    public Sprite cancerCellSprite;
     //Actual Cell object that will be manipulated
     public Cell currentCell;
     //Script that generates random cells
@@ -54,12 +56,25 @@ public class GameManager : MonoBehaviour
     public AudioManager audioManager;
     private void Start()
     {
-        DocumentStartingPosition = new Vector3(5f, 0f, 5f);
+        DocumentStartingPosition = new Vector3(Screen.width / 2, Screen.height / 2 - 200, 0f);
         DocumentStartingRotation = new Quaternion(0f, 0f, 0f, 0f);
-        CellStartingPosition = new Vector3(0f, 0f, 0f);
+        CellStartingPosition = new Vector3(Screen.width/2,Screen.height/2 - 100, 0f);
         CellStartingRotation = new Quaternion(0f, 0f, 0f, 0f);
     }
 
+    public static GameManager Instance
+    {
+        get
+        {
+            if (_instance is null)
+                Debug.LogError("Game manager is NULL");
+            return _instance;
+        }
+    }
+    private void Awake()
+    {
+        _instance = this;
+    }
     // Cell Management
 
     /*
@@ -118,6 +133,11 @@ public class GameManager : MonoBehaviour
             currentCell = Instantiate(cellTemplate, CellStartingPosition, CellStartingRotation, DocumentsUI);
             ActiveDocument = Instantiate(DocumentTemplate, DocumentStartingPosition, DocumentStartingRotation, DocumentsUI);
             CellGenerator.GenerateCell(0.33f * cancerMultiplier, 5, currentCell, ActiveDocument);
+            if(currentCell.GetCancerStatus())
+            {
+                Image cellImage = currentCell.GetComponent<Image>();
+                cellImage.sprite = cancerCellSprite;
+            }
             ActiveDocument.gameObject.SetActive(false);
             if (!currentCell.GetCancerStatus())
             {
@@ -138,6 +158,24 @@ public class GameManager : MonoBehaviour
         }
         //DocumentItem
     }
+
+    public int GetHealthyTerminated()
+    {
+        return HealthyCellsTerminated;
+    }
+    public int GetHealthyAllowed()
+    {
+        return HealthyCellsLetThrough;
+    }
+    public int GetCancerTerminated()
+    {
+        return CancerCellsTerminated;
+    }
+    public int GetCancerAllowed()
+    {
+        return CancerCellsLetThrough;
+    }
+
 }
 
 

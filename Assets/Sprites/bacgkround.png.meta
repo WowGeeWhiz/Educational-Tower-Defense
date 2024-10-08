@@ -152,7 +152,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bacgkround_0: -311617609850239405
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -152,7 +152,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Healthy_Cell.png_0: -1433335144796799018
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

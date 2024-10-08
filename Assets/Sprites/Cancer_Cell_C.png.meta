@@ -176,7 +176,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Cancer_Cell_C_0: 1127606810288918557
+      Cancer_Cell_C_1: -4353645198870245941
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
