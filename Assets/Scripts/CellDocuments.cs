@@ -14,9 +14,21 @@ public class CellDocuments : MonoBehaviour
         this.destination = destination;
     }
 
+    public void UpdateDocuments(CellDocuments foreignCell)
+    {
+        this.color = foreignCell.color;
+        this.protein = foreignCell.protein;
+        this.destination = foreignCell.destination;
+    }
+    public void UpdateDocuments(string color, string protein, Locations destination)
+    {
+        this.color = color;
+        this.protein = protein;
+        this.destination = destination;
+    }
     public string GetDestination()
     {
-        switch(destination)
+        switch (destination)
         {
             case (Locations)0:
                 return "Brain";
@@ -32,16 +44,9 @@ public class CellDocuments : MonoBehaviour
                 return "";
         }
     }
-    public void UpdateDocuments(CellDocuments foreignCell)
+    public string GetColor()
     {
-        this.color = foreignCell.color;
-        this.protein = foreignCell.protein;
-        this.destination = foreignCell.destination;
+        return destination.ToString();
     }
-    public void UpdateDocuments(string color, string protein, Locations destination)
-    {
-        this.color = color;
-        this.protein = protein;
-        this.destination = destination;
-    }
+
 }
