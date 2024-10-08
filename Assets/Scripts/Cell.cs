@@ -14,7 +14,6 @@ public class Cell: MonoBehaviour
     bool Cancer;
     string color;
     bool alive;//Couldn't remember the particular reason for this one
-    CellDocuments CD;//We don't have this yet so blank for now
     string[] proteins;
     int Age;
     bool Dividing;// May remove later currently meant for showcasing division in real time
@@ -52,10 +51,6 @@ public class Cell: MonoBehaviour
     public bool GetCancerStatus()
     {
         return Cancer;
-    }
-    public CellDocuments GetCellDocuments()
-    {
-        return this.CD;
     }
     public void UpdateCell(bool can, string c, bool a, string[] p, int age, bool d, Locations dest)
     {
