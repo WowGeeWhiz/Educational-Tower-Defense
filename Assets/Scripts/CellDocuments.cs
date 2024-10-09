@@ -1,52 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class CellDocuments : MonoBehaviour
 {
+    CellTypes cellType;
     string color;
     string protein;
     Locations destination;
+
     public CellDocuments(string color, string protein, Locations destination)
     {
         this.color = color;
         this.protein = protein;
         this.destination = destination;
     }
-
     public void UpdateDocuments(CellDocuments foreignCell)
     {
         this.color = foreignCell.color;
         this.protein = foreignCell.protein;
         this.destination = foreignCell.destination;
+        Debug.Log(foreignCell.destination);
+        Debug.Log(this.destination);
     }
-    public void UpdateDocuments(string color, string protein, Locations destination)
+    public void UpdateDocuments(CellTypes cellType, string color, string protein, Locations destination)
     {
+        this.cellType = cellType;
         this.color = color;
         this.protein = protein;
         this.destination = destination;
     }
     public string GetDestination()
     {
-        switch (destination)
-        {
-            case (Locations)0:
-                return "Brain";
-            case (Locations)1:
-                return "Liver";
-            case (Locations)2:
-                return "Lungs";
-            case (Locations)3:
-                return "Bones";
-            case (Locations)4:
-                return "Kidney";
-            default:
-                return "";
-        }
+        return destination.ToString();
     }
     public string GetColor()
     {
         return destination.ToString();
+    }
+    public string GetCellType()
+    {
+        return cellType.ToString();
     }
 
 }

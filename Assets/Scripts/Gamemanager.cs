@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
-public enum Locations { Brain, Liver, Lungs, Bones, Kidney };
+public enum Locations { Brain, Liver, Lungs, Bones, Kidney, Nerves };
+public enum CellTypes { Stem, Blood, Bone, Skin, Muscle, Nerve}
 
 public class GameManager : MonoBehaviour
 {
@@ -62,19 +63,7 @@ public class GameManager : MonoBehaviour
         CellStartingRotation = new Quaternion(0f, 0f, 0f, 0f);
     }
 
-    public static GameManager Instance
-    {
-        get
-        {
-            if (_instance is null)
-                Debug.LogError("Game manager is NULL");
-            return _instance;
-        }
-    }
-    private void Awake()
-    {
-        _instance = this;
-    }
+
     // Cell Management
 
     /*

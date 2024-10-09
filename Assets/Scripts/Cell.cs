@@ -10,14 +10,14 @@ public class Cell: MonoBehaviour
     //Alive 
     //May need more if research shows they do
     //Documents are an associated object with the same variables
-
+    CellTypes cellType;
     bool Cancer;
     string color;
     bool alive;//Couldn't remember the particular reason for this one
     string[] proteins;
     int Age;
     bool Dividing;// May remove later currently meant for showcasing division in real time
-    Locations Destination;
+    Locations destination;
 
 
     //When the cell generator spawns a cell, it can assign these attributes randomly
@@ -35,7 +35,7 @@ public class Cell: MonoBehaviour
         }
         Age = age;
         Dividing = d;
-        Destination = dest;
+        destination = dest;
     }
 
     public Cell()
@@ -46,14 +46,15 @@ public class Cell: MonoBehaviour
         proteins = new string[0];
         Age = 0;
         Dividing = false;
-        Destination = Locations.Brain;
+        destination = Locations.Brain;
     }
     public bool GetCancerStatus()
     {
         return Cancer;
     }
-    public void UpdateCell(bool can, string c, bool a, string[] p, int age, bool d, Locations dest)
+    public void UpdateCell(CellTypes cell, bool can, string c, bool a, string[] p, int age, bool d, Locations dest)
     {
+        cellType = cell;
         Cancer = can;
         color = c;
         alive = a;
@@ -66,6 +67,6 @@ public class Cell: MonoBehaviour
         }
         Age = age;
         Dividing = d;
-        Destination = dest;
+        destination = dest;
     }
 }
