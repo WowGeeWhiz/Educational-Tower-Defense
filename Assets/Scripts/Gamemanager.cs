@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
@@ -30,7 +29,6 @@ public class GameManager : MonoBehaviour
     public Cell currentCell;
     //Script that generates random cells
     public CellGeneration CellGenerator;
-
     //Parent that instantiated objects will spawn on
     public Transform DocumentsUI;
 
