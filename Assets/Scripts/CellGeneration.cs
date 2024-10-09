@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.U2D.Aseprite;
 using UnityEngine;
 
 public class CellGeneration : MonoBehaviour
@@ -21,30 +22,23 @@ public class CellGeneration : MonoBehaviour
         bool dividing;
         //Unity was giving an error where "an uninstantiated variable can't be used" so this assignment is here solely to fix it.
         Locations destination = Locations.Brain;
+        CellTypes cellType = CellTypes.Stem;
 
         proteins[0] = "A"; // Going to have to implment an enum of it
         proteins[1] = "B";
         proteins[2] = "C";
         age = 0; //We just need to decide a healthy range
         dividing = false;
+
+        //Uses random integer to assign a location for the cell to move to.
         int location = UnityEngine.Random.Range(0, Enum.GetNames(typeof(Locations)).Length);
-        switch (location)
-        {
-            case 0:
-                break;
-            case 1:
-                destination = Locations.Liver; break;
-            case 2:
-                destination = Locations.Lungs; break;
-            case 3:
-                destination = Locations.Bones; break;
-            case 4:
-                destination = Locations.Kidney; break;
-        }
-            if (UnityEngine.Random.Range(0.0f, 1.0f) < DefectRate)// if true generate Defect.
+        destination = AssignLocation(location);
+        cellType = AssignCellType(location);
+        //Debug.Log(destination);
+        if (UnityEngine.Random.Range(0.0f, 1.0f) < DefectRate)// if true generate Defect.
             {
                 cancer = true;// I left out multiple discrepencys for right now I think we take it one step at a time
-
+                
                 switch (UnityEngine.Random.Range(0, 2))
                 {
                     case 0://protiens
@@ -59,12 +53,79 @@ public class CellGeneration : MonoBehaviour
                     default:
                         break;
                 }
+            destination = AssignLocation(UnityEngine.Random.Range(0, Enum.GetNames(typeof(Locations)).Length));
+            cellType = AssignCellType(Enum.GetNames(typeof(CellTypes)).Length);
             }
-        cell.UpdateCell(cancer, color, alive, proteins, age, dividing, destination);
+        cell.UpdateCell(cellType, cancer, color, alive, proteins, age, dividing, destination);
         //Preliminary CelldocumentGeneration for testing
+        cd.UpdateDocuments(cellType,"red", "protein", destination);
+    }
+    //public enum Locations { Brain, Liver, Lungs, Bones, Kidney, Nerves };
+    //public enum CellTypes { Stem, Blood, Bone, Skin, Muscle, Nerve }
+    CellTypes AssignCellType(int location)
+    {
+        int temp = 0;
+        switch (location)
+        {
+            case 0:
+                temp = UnityEngine.Random.Range(0, 1);
+                if (temp == 0)
+                return CellTypes.Stem;
+                else
+                return CellTypes.Blood;
+            case 1:
+                temp = UnityEngine.Random.Range(0, 1);
+                if (temp == 0)
+                    return CellTypes.Stem;
+                else
+                    return CellTypes.Blood;
+            case 2:
+                temp = UnityEngine.Random.Range(0, 1);
+                if (temp == 0)
+                    return CellTypes.Stem;
+                else
+                    return CellTypes.Blood;
+            case 3:
+                temp = UnityEngine.Random.Range(0, 1);
+                if (temp == 0)
+                    return CellTypes.Stem;
+                else
+                    return CellTypes.Blood;
+            case 4:
+                temp = UnityEngine.Random.Range(0, 1);
+                if (temp == 0)
+                    return CellTypes.Stem;
+                else
+                    return CellTypes.Blood;
+            case 5:
+                temp = UnityEngine.Random.Range(0, 1);
+                if (temp == 0)
+                    return CellTypes.Nerve;
+                else
+                    return CellTypes.Stem;
+            default:
+                return CellTypes.Stem;
+        }
+    }
 
-
-
-        cd.UpdateDocuments("red", "protein", Locations.Brain);
+    Locations AssignLocation(int location)
+    {
+        switch (location)
+        {
+            case 0:
+                return Locations.Brain;
+            case 1:
+                return Locations.Liver;
+            case 2:
+                return Locations.Lungs;
+            case 3:
+                return Locations.Bones;
+            case 4:
+                return Locations.Kidney;
+            case 5:
+                return Locations.Nerves;
+            default:
+                return Locations.Brain;
+        }
     }
 }
