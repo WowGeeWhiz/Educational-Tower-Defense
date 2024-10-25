@@ -9,6 +9,7 @@ public class TutorialManager : MonoBehaviour
     private GameObject currentPopup;
     private TMP_Text tutorialText;           
     private Button nextButton;
+    public GameObject Default_Layer;
 
     //Index for tutorial steps
     private int stepIndex = 0;
@@ -38,6 +39,25 @@ public class TutorialManager : MonoBehaviour
     //Show the next tutorial step
     public void ShowNextPopup()
     {
+        if (currentPopup == null)
+        {
+            //Instatiate as a child of default layer object
+            //object.transform.setparent()
+            //object.transform.SetParent(newParent) 
+            currentPopup = Instantiate(tutorialPopupPrefab);
+            currentPopup.transform.SetParent(Default_Layer.transform);
+
+            //Ensure it can be dragged
+            if (currentPopup.GetComponent<DragObject>() == null)
+            {
+                currentPopup.AddComponent<DragObject>();
+            }
+
+            tutorialText = currentPopup.GetComponentInChildren<TMPro.TextMeshProUGUI>();
+            nextButton = currentPopup.GetComponentInChildren<Button>();
+            nextButton.onClick.AddListener(OnNextButtonClicked);
+        }
+
         if (stepIndex < tutorialSteps.Length)
         {
             if (currentPopup == null)
@@ -108,5 +128,7 @@ public class TutorialManager : MonoBehaviour
         stepIndex = 5;
         ShowNextPopup();
     }
+
+
 }
 
