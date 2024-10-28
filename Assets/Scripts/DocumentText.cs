@@ -8,9 +8,12 @@ public class DocumentText : MonoBehaviour
     public CellDocuments cellDocument;
     public TMP_Text destinationText;
     public TMP_Text cellTypeText;
+    public TMP_Text proteinText;
     private void Update()
     {
-        destinationText.text = "Destination: " + cellDocument.GetDestination();
-        cellTypeText.text = "Cell Type: " + cellDocument.GetCellType();
+        destinationText.text = "Destination: " + cellDocument.GetDestinationText();
+        cellTypeText.text = "Cell Type: " + cellDocument.GetCellTypeText();
+        proteinText.text = cellDocument.GetProteinText();
+
     }
 }
