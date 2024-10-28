@@ -7,7 +7,7 @@ using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 public enum Locations { Brain, Liver, Lungs, Bones, Kidney, Nerves };
-public enum CellTypes { Stem, Blood, Bone, Skin, Muscle, Nerve}
+public enum CellTypes { Stem, Blood, Bone, Skin, Muscle, Nerve};
 
 public class GameManager : MonoBehaviour
 {
@@ -146,6 +146,8 @@ public class GameManager : MonoBehaviour
         //DocumentItem
     }
 
+
+    //Methods that grab information from the gamemanger class
     public int GetHealthyTerminated()
     {
         return HealthyCellsTerminated;

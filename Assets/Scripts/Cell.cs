@@ -5,11 +5,6 @@ using UnityEngine;
 
 public class Cell: MonoBehaviour
 {
-    //Cells have the following attributes:
-    //Color
-    //Alive 
-    //May need more if research shows they do
-    //Documents are an associated object with the same variables
     CellTypes cellType;
     bool Cancer;
     string color;
@@ -18,7 +13,6 @@ public class Cell: MonoBehaviour
     int Age;
     bool Dividing;// May remove later currently meant for showcasing division in real time
     Locations destination;
-
 
     //When the cell generator spawns a cell, it can assign these attributes randomly
     public Cell(bool can, string c, bool a, string[] p, int age, bool d, Locations dest)

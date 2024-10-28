@@ -16,10 +16,6 @@ public class TempUIButtons : MonoBehaviour
     public TMP_Text cancerKill;
 
     public GameManager gameManager;
-    private void Start()
-    {
-        
-    }
     private void Update()
     {
         healthAllow.text = "Healthy Allowed: " + gameManager.GetHealthyAllowed();

@@ -5,6 +5,14 @@ using UnityEngine;
 
 public class CellGeneration : MonoBehaviour
 {
+    //public enum CellTypes { Stem, Blood, Bone, Skin, Muscle, Nerve };
+    string[] cancerProteins;
+    string[] stemProteins;
+    string[] bloodProteins;
+    string[] boneProteins;
+    string[] muscleProteins;
+    string[] nerveProteins;
+
     /*
      * Uses empty currentCell from Gamemanager to "update" the cell that's spawned in 
      * Similar operation occurs with the ActiveDocument
@@ -12,55 +20,64 @@ public class CellGeneration : MonoBehaviour
     public void GenerateCell(float DefectRate, int NumOfDefect, Cell cell, CellDocuments cd)
     {
         //Cell Generation
-        
         bool cancer = false;
         string color = "red";
         bool alive = true;
-        string[] proteins = new string[3];//Not sure about the size yet, but 3 felt good
         int age;
         bool dividing;
-        //Unity was giving an error where "an uninstantiated variable can't be used" so this assignment is here solely to fix it.
-        Locations destination = Locations.Brain;
-        CellTypes cellType = CellTypes.Stem;
-
-        proteins[0] = "A"; // Going to have to implment an enum of it
-        proteins[1] = "B";
-        proteins[2] = "C";
+        //Uses random integer to assign a location for the cell to move to.
+        int location = UnityEngine.Random.Range(0, Enum.GetNames(typeof(Locations)).Length);
+        Locations destination = AssignLocation(location);
+        CellTypes cellType = AssignCellType(location);
+        string[] proteins = AssignProteins(cellType);
         age = 0; //We just need to decide a healthy range
         dividing = false;
 
-        //Uses random integer to assign a location for the cell to move to.
-        int location = UnityEngine.Random.Range(0, Enum.GetNames(typeof(Locations)).Length);
-        destination = AssignLocation(location);
-        cellType = AssignCellType(location);
-        //Debug.Log(destination);
         if (UnityEngine.Random.Range(0.0f, 1.0f) < DefectRate)// if true generate Defect.
-            {
-                cancer = true;// I left out multiple discrepencys for right now I think we take it one step at a time
+        {
+            cancer = true;// I left out multiple discrepencys for right now I think we take it one step at a time
                 
-                switch (UnityEngine.Random.Range(0, 2))
-                {
-                    case 0://protiens
-                        proteins[UnityEngine.Random.Range(0, 2)] = "1";//Need to switch out the num with an enum of cancer types
-                        break;
-                    case 1://Division
-                        dividing = true;
-                        break;
-                    case 2://Destination - Age
-                           //I could not remember exactly, but this will probablly need to be together in order to work
-                        break;
-                    default:
-                        break;
-                }
+            //Legacy Code I don't know the intention of this
+            //switch (UnityEngine.Random.Range(0, 2))
+            //{
+            //    case 0://protiens
+            //        proteins[UnityEngine.Random.Range(0, 2)] = "1";//Need to switch out the num with an enum of cancer types
+            //        break;
+            //    case 1://Division
+            //        dividing = true;
+            //        break;
+            //    case 2://Destination - Age
+            //           //I could not remember exactly, but this will probablly need to be together in order to work
+            //        break;
+            //    default:
+            //        break;
+            //}
+                
+            //Randomizes a random protein to additional cancer proteins;
+            if (UnityEngine.Random.Range(0, 1) == 1)
+            {
+                proteins[0] = cancerProteins[UnityEngine.Random.Range(0, cancerProteins.Length)]; 
+            }
+            if (UnityEngine.Random.Range(0, 1) == 1)
+            {
+                proteins[1] = cancerProteins[UnityEngine.Random.Range(0, cancerProteins.Length)];
+            }
+            if (UnityEngine.Random.Range(0, 1) == 1)
+            {
+                proteins[2] = cancerProteins[UnityEngine.Random.Range(0, cancerProteins.Length)];
+            }
+            //Randomizes Location and cell type to give indication that something is wrong
             destination = AssignLocation(UnityEngine.Random.Range(0, Enum.GetNames(typeof(Locations)).Length));
             cellType = AssignCellType(Enum.GetNames(typeof(CellTypes)).Length);
-            }
+        }
         cell.UpdateCell(cellType, cancer, color, alive, proteins, age, dividing, destination);
         //Preliminary CelldocumentGeneration for testing
-        cd.UpdateDocuments(cellType,"red", "protein", destination);
+        cd.UpdateDocuments(cellType,"red", proteins, destination);
     }
     //public enum Locations { Brain, Liver, Lungs, Bones, Kidney, Nerves };
     //public enum CellTypes { Stem, Blood, Bone, Skin, Muscle, Nerve }
+
+    #region AssignmentFunctions
     CellTypes AssignCellType(int location)
     {
         int temp = 0;
@@ -106,7 +123,6 @@ public class CellGeneration : MonoBehaviour
                 return CellTypes.Stem;
         }
     }
-
     Locations AssignLocation(int location)
     {
         switch (location)
@@ -127,4 +143,31 @@ public class CellGeneration : MonoBehaviour
                 return Locations.Brain;
         }
     }
+    string[] AssignProteins(CellTypes celltype)
+    {
+        string[] proteins = new string[3];
+        switch (celltype)
+        {
+            case CellTypes.Stem:
+
+                break;
+            case CellTypes.Blood:
+
+                break;
+            case CellTypes.Bone:
+
+                break;
+            case CellTypes.Skin:
+
+                break;
+            case CellTypes.Muscle:
+
+                break;
+            case CellTypes.Nerve:
+
+                break;
+        }
+        return proteins;
+    }
+    #endregion
 }
