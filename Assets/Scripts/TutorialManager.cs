@@ -9,6 +9,7 @@ public class TutorialManager : MonoBehaviour
     private GameObject currentPopup;
     private TMP_Text tutorialText;           
     private Button nextButton;
+    private Button closeButton;
     public GameObject Default_Layer;
 
     //Index for tutorial steps
@@ -22,12 +23,13 @@ public class TutorialManager : MonoBehaviour
     //Tutorial steps as strings
     //My mindset is if there's an array of tutorial prompts in the code, we only need one prefab that can dynamically load the right prompt
     private string[] tutorialSteps = {
-        "Welcome to the tutorial!\nIn this game, you will learn how to identify cancer cells from healthy cells,\njust like how our bodies do!",
+        "Welcome to the tutorial! In this game, you will learn how to identify cancer cells from healthy cells,just like how our bodies do!",
         "Your job is to man this checkpoint, and check each cell's documents to make sure they check out. Their documents contain details about the cell.",
-        "This is a set of documents. You can drag them around. Check the information on it carefully to decide if the cell is cancerous or healthy.",
+        "This is a cell. Sometimes you can tell just by looking that they are cancerous, but it is always good to look at their documents to make sure. Click the spawn documents button to look at this cell's information.",
+        "This is a set of documents. You can drag them around. Check the information on it carefully against your checklist to decide if the cell is cancerous or healthy.",
         "Use the 'Allow' button to let a healthy cell pass through, or 'Kill' to eliminate a cancerous cell.",
-        "This is the scoreboard. It tracks the number of healthy and cancer cells you’ve killed or allowed.",
-        "Would you like to replay the tutorial or move on to the game on your own?"
+        "In the top right is the scoreboard. It tracks the number of healthy and cancer cells you’ve killed or allowed. Keep an eye on it to track your progress!",
+        "Congrats on finishing the tutorial! Click close to keep playing with help, or next to move on to the next level."
     };
 
     //Start the tutorial when the level loads
@@ -54,9 +56,12 @@ public class TutorialManager : MonoBehaviour
             }
 
             tutorialText = currentPopup.GetComponentInChildren<TMPro.TextMeshProUGUI>();
-            nextButton = currentPopup.GetComponentInChildren<Button>();
+            nextButton = (GameObject.FindGameObjectWithTag("NextButton")).GetComponent<Button>();
+            closeButton = (GameObject.FindGameObjectWithTag("CloseButton")).GetComponent<Button>();
+
             nextButton.onClick.AddListener(OnNextButtonClicked);
-        }
+            closeButton.onClick.AddListener(CloseTutorial);
+    }
 
         if (stepIndex < tutorialSteps.Length)
         {
@@ -73,6 +78,9 @@ public class TutorialManager : MonoBehaviour
 
                 //Add listener for the "Next" button
                 nextButton.onClick.AddListener(OnNextButtonClicked);
+
+                //Add listenter for the "Close" button
+                closeButton.onClick.AddListener(CloseTutorial);
             }
 
             //Update the text for the current step
@@ -96,7 +104,12 @@ public class TutorialManager : MonoBehaviour
     private void OnNextButtonClicked()
     {
         stepIndex++;
-        ShowNextPopup();
+        //if stepIndex <=1 
+        if(stepIndex <= 1 || stepIndex == 6)
+        {
+            ShowNextPopup();
+        }
+        
     }
 
     //Close the tutorial and cleanup
@@ -104,7 +117,7 @@ public class TutorialManager : MonoBehaviour
     {
         Destroy(currentPopup);
         //Reset the tutorial index
-        stepIndex = 0;  
+        //stepIndex = 0;  
     }
 
     //Custom triggers for tutorial steps
@@ -115,20 +128,27 @@ public class TutorialManager : MonoBehaviour
         ShowNextPopup();
     }
 
+    //Write a method to trigger cell document tutorial
+    public void TriggerDocumentTutorial()
+    {
+        stepIndex = 3;
+        ShowNextPopup();
+    }
+
     public void TriggerScoreboardTutorial()
     {
         //After player makes a decision
-        stepIndex = 4;
+        stepIndex = 5;
         ShowNextPopup();
     }
 
     public void TriggerFinalStep()
     {
         //After showing scoreboard
-        stepIndex = 5;
+        stepIndex = 6;
         ShowNextPopup();
     }
 
+    //Method to replay the tutorial
 
 }
-

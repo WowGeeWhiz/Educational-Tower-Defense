@@ -155,6 +155,10 @@ public class GameManager : MonoBehaviour
             ActiveDocument.gameObject.SetActive(true);
         }
         //DocumentItem
+
+        //Trigger tutorial pop-up for documents
+        FindFirstObjectByType<TutorialManager>().TriggerDocumentTutorial();
+
     }
 
     public int GetHealthyTerminated()
