@@ -5,11 +5,20 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 3fc8acdd13e6c734bafef6554d6fdbcd
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: 5aebd20df667603429237dc628be92d7
   - enabled: 1
     path: Assets/Scenes/LevelForMidterm.unity
     guid: bf0f60c67021994469cf9b0ce7404125
+  - enabled: 1
+    path: Assets/Scenes/QuizScene.unity
+    guid: a43d948e5370737429be504b39849158
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 9cd627e8cb656ac4086aab7dfaca06f4
+  - enabled: 0
+    path: Assets/Scenes/SampleScene.unity
+    guid: 3fc8acdd13e6c734bafef6554d6fdbcd
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

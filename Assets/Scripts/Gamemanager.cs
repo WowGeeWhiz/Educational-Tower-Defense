@@ -59,6 +59,9 @@ public class GameManager : MonoBehaviour
         DocumentStartingRotation = new Quaternion(0f, 0f, 0f, 0f);
         CellStartingPosition = new Vector3(Screen.width/2,Screen.height/2 - 100, 0f);
         CellStartingRotation = new Quaternion(0f, 0f, 0f, 0f);
+
+        //Trigger the first tutorial step when the tutorial level starts
+        FindFirstObjectByType<TutorialManager>().WelcomePopUps();
     }
 
 
@@ -88,6 +91,8 @@ public class GameManager : MonoBehaviour
         Destroy(ActiveDocument.gameObject);
         ActiveDocument = null;
 
+        //Trigger scoreboard tutorial
+        FindFirstObjectByType<TutorialManager>().TriggerScoreboardTutorial();
     }
     /*
      * 
@@ -108,6 +113,9 @@ public class GameManager : MonoBehaviour
         ActiveDocument.gameObject.SetActive(false);
         Destroy(ActiveDocument.gameObject);
         ActiveDocument = null;
+
+        //Trigger scoreboard tutorial
+        FindFirstObjectByType<TutorialManager>().TriggerScoreboardTutorial();
     }
 
     /*
@@ -134,6 +142,9 @@ public class GameManager : MonoBehaviour
             {
                 cancerMultiplier = 1;
             }
+
+            //Trigger the tutorial pop-up when the first cell spawns
+            FindFirstObjectByType<TutorialManager>().TriggerCellSpawnTutorial();
         }
     }
     public void AcquireDocuments()
@@ -144,6 +155,10 @@ public class GameManager : MonoBehaviour
             ActiveDocument.gameObject.SetActive(true);
         }
         //DocumentItem
+
+        //Trigger tutorial pop-up for documents
+        FindFirstObjectByType<TutorialManager>().TriggerDocumentTutorial();
+
     }
 
 
