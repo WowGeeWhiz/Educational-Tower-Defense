@@ -14,7 +14,7 @@ public class DragObject : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
     private void Awake()
     {
         centerLocation = (transform as RectTransform).rect.center;
-        dragManager = GetComponentInParent<DragManager>();
+        dragManager = FindFirstObjectByType<DragManager>();
     }
 
     public void OnBeginDrag(PointerEventData eventData)
