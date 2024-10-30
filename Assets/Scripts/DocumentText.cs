@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -13,7 +14,7 @@ public class DocumentText : MonoBehaviour
     {
         destinationText.text = "Destination: " + cellDocument.GetDestinationText();
         cellTypeText.text = "Cell Type: " + cellDocument.GetCellTypeText();
-        proteinText.text = cellDocument.GetProteinText();
+        proteinText.text = "Proteins: " + Environment.NewLine + cellDocument.GetProteinText();
 
     }
 }

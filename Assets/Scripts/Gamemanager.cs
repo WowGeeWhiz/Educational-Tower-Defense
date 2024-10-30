@@ -53,15 +53,18 @@ public class GameManager : MonoBehaviour
     // Audio manager is a script that handles music and sounds in the game
 
     public AudioManager audioManager;
+
+    TutorialManager tutorialManager;
     private void Start()
     {
         DocumentStartingPosition = new Vector3(Screen.width / 2, Screen.height / 2 - 200, 0f);
         DocumentStartingRotation = new Quaternion(0f, 0f, 0f, 0f);
         CellStartingPosition = new Vector3(Screen.width/2,Screen.height/2 - 100, 0f);
         CellStartingRotation = new Quaternion(0f, 0f, 0f, 0f);
-
+        tutorialManager = FindFirstObjectByType<TutorialManager>();
         //Trigger the first tutorial step when the tutorial level starts
-        FindFirstObjectByType<TutorialManager>().WelcomePopUps();
+        if(tutorialManager != null )
+        tutorialManager.WelcomePopUps();
     }
 
 
@@ -92,7 +95,8 @@ public class GameManager : MonoBehaviour
         ActiveDocument = null;
 
         //Trigger scoreboard tutorial
-        FindFirstObjectByType<TutorialManager>().TriggerScoreboardTutorial();
+        if(tutorialManager != null)
+        tutorialManager.TriggerScoreboardTutorial();
     }
     /*
      * 
@@ -115,7 +119,8 @@ public class GameManager : MonoBehaviour
         ActiveDocument = null;
 
         //Trigger scoreboard tutorial
-        FindFirstObjectByType<TutorialManager>().TriggerScoreboardTutorial();
+        if(tutorialManager != null)
+        tutorialManager.TriggerScoreboardTutorial();
     }
 
     /*
@@ -144,7 +149,8 @@ public class GameManager : MonoBehaviour
             }
 
             //Trigger the tutorial pop-up when the first cell spawns
-            FindFirstObjectByType<TutorialManager>().TriggerCellSpawnTutorial();
+            if(tutorialManager != null)
+            tutorialManager.TriggerCellSpawnTutorial();
         }
     }
     public void AcquireDocuments()
@@ -157,7 +163,8 @@ public class GameManager : MonoBehaviour
         //DocumentItem
 
         //Trigger tutorial pop-up for documents
-        FindFirstObjectByType<TutorialManager>().TriggerDocumentTutorial();
+        if(tutorialManager != null)
+        tutorialManager.TriggerDocumentTutorial();
 
     }
 

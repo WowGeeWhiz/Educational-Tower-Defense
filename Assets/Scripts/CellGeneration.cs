@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class CellGeneration : MonoBehaviour
 {
-    //public enum CellTypes { Stem, Blood, Bone, Skin, Muscle, Nerve };
-    string[] cancerProteins;
-    string[] stemProteins;
-    string[] bloodProteins;
-    string[] boneProteins;
-    string[] muscleProteins;
-    string[] nerveProteins;
-
+    string[] cancerProteins = {"EGFR", "PD-L1", "c-Myc", "VEGF", "CD47" };
+    string[] stemProteins = { "Oct4", "Nanog", "c-Myc", "Sox2" };
+    string[] bloodProteins = { "Hemoglobin", "CD4", "IgG", "Glycophorin A" };
+    string[] skinProteins = { "Keratin", "Melanin", "Filaggrin", "Elastin" };
+    string[] boneProteins = { "Osteocalcin", "RANKLK", "Osteopontin", "ALP"};
+    string[] muscleProteins = {"Myosin", "Actin", "Troponin", "Dystrophin"};
+    string[] nerveProteins = { "Neurofilaments", "Synaptophysin", "NMDA"};
+    string[] cellProteins = {"Actin", "Tubulin", "Hexokinase"};
     /*
      * Uses empty currentCell from Gamemanager to "update" the cell that's spawned in 
      * Similar operation occurs with the ActiveDocument
@@ -65,6 +65,10 @@ public class CellGeneration : MonoBehaviour
             if (UnityEngine.Random.Range(0, 1) == 1)
             {
                 proteins[2] = cancerProteins[UnityEngine.Random.Range(0, cancerProteins.Length)];
+            }
+            if (UnityEngine.Random.Range(0, 1) == 1)
+            {
+                proteins[3] = cancerProteins[UnityEngine.Random.Range(0, cancerProteins.Length)];
             }
             //Randomizes Location and cell type to give indication that something is wrong
             destination = AssignLocation(UnityEngine.Random.Range(0, Enum.GetNames(typeof(Locations)).Length));
@@ -145,26 +149,44 @@ public class CellGeneration : MonoBehaviour
     }
     string[] AssignProteins(CellTypes celltype)
     {
-        string[] proteins = new string[3];
+        string[] proteins = new string[4];
         switch (celltype)
         {
             case CellTypes.Stem:
-
+                for(int i = 0; i <= 3; i++)
+                {
+                    proteins[i] = stemProteins[UnityEngine.Random.Range(0, stemProteins.Length)];
+                }
                 break;
             case CellTypes.Blood:
-
+                for (int i = 0; i <= 3; i++)
+                {
+                    proteins[i] = bloodProteins[UnityEngine.Random.Range(0, bloodProteins.Length)];
+                }
                 break;
             case CellTypes.Bone:
-
+                for (int i = 0; i <= 3; i++)
+                {
+                    proteins[i] = boneProteins[UnityEngine.Random.Range(0, boneProteins.Length)];
+                }
                 break;
             case CellTypes.Skin:
-
+                for (int i = 0; i <= 3; i++)
+                {
+                    proteins[i] = skinProteins[UnityEngine.Random.Range(0, skinProteins.Length)];
+                }
                 break;
             case CellTypes.Muscle:
-
+                for (int i = 0; i <= 3; i++)
+                {
+                    proteins[i] = muscleProteins[UnityEngine.Random.Range(0, muscleProteins.Length)];
+                }
                 break;
             case CellTypes.Nerve:
-
+                for (int i = 0; i <= 3; i++)
+                {
+                    proteins[i] = nerveProteins[UnityEngine.Random.Range(0, nerveProteins.Length)];
+                }
                 break;
         }
         return proteins;
