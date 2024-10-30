@@ -8,6 +8,8 @@ public class Booklet : MonoBehaviour
     public TMP_Text pageText;
     public GameObject prevPage;
     public GameObject nextPage;
+    public TMP_Text pageNum;
+    int pageNumber;
     // Start is called before the first frame update
     void Start()
     {

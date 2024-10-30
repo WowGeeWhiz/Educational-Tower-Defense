@@ -8,7 +8,7 @@ public class CellDocuments : MonoBehaviour
 {
     CellTypes cellType;
     string color;
-    string[] proteins;
+    string[] proteins = new string[4];
     Locations destination;
 
     public CellDocuments(string color, string[] proteins, Locations destination)

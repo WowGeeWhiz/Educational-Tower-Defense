@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro; 
-
+using TMPro;
+using UnityEngine.SceneManagement;
 public class TutorialManager : MonoBehaviour
 {
     public GameObject tutorialPopupPrefab;
@@ -105,6 +105,10 @@ public class TutorialManager : MonoBehaviour
     {
         stepIndex++;
         //if stepIndex <=1 
+        if(stepIndex> 6)
+        {
+            SceneManager.LoadScene("LevelForMidterm");
+        }
         if(stepIndex <= 1 || stepIndex == 6)
         {
             ShowNextPopup();

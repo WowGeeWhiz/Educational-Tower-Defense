@@ -13,7 +13,7 @@ public class MainMenu : MonoBehaviour
     ///  3: Assessment
     public void PlayTutorial()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Tutorial");
     }
 
     public void PlayLevelOne()
