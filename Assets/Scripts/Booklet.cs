@@ -9,17 +9,23 @@ public class Booklet : MonoBehaviour
     public GameObject prevPage;
     public GameObject nextPage;
     public TMP_Text pageNum;
-    int pageNumber;
+    public GameObject moreInfoButton;
+    
+    public GameObject moreInfoText;
+    public TMP_Text infoTitle;
+    public TMP_Text moreInfoBody;
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        pageNum.text = "";
+        Debug.Log(pageText.pageToDisplay.ToString());
     }
 
     // Update is called once per frame
     public void NextPage()
     {
-        if(!prevPage.activeInHierarchy)
+        if (!prevPage.activeInHierarchy)
         {
             prevPage.SetActive(true);
         }
@@ -28,17 +34,41 @@ public class Booklet : MonoBehaviour
         {
             nextPage.SetActive(false);
         }
+        SetPageText();
     }
     public void PreviousPage()
     {
+        Debug.Log(pageText.pageToDisplay.ToString());
         if (!nextPage.activeInHierarchy)
         {
             nextPage.SetActive(true);
         }
         pageText.pageToDisplay--;
-        if(pageText.pageToDisplay == 0 )
+        if(pageText.pageToDisplay == 1)
         {
             prevPage.SetActive( false );
         }
+        SetPageText();
+    }
+    void SetPageText()
+    {
+        int pageNumber = pageText.pageToDisplay - 1;
+        if (pageNumber != 0)
+            pageNum.text = pageNumber.ToString();
+        else
+        {
+            pageNum.text = "";
+            moreInfoButton.SetActive(false);
+        }
+        if (pageNumber > 1 && !moreInfoButton.activeInHierarchy)
+        {
+            moreInfoButton.SetActive(true);
+        }
+    }
+    public void TriggerInfoText()
+    {
+        moreInfoText.SetActive(true);
+        infoTitle.pageToDisplay = pageText.pageToDisplay;
+        moreInfoBody.pageToDisplay = pageText.pageToDisplay;
     }
 }
