@@ -38,7 +38,6 @@ public class Booklet : MonoBehaviour
     }
     public void PreviousPage()
     {
-        Debug.Log(pageText.pageToDisplay.ToString());
         if (!nextPage.activeInHierarchy)
         {
             nextPage.SetActive(true);
