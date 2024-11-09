@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     bool gameStart = false; 
     float timeTillLevelEnd;
 
-    int HealthyCellsNeeded;
+    public int HealthyCellsNeeded;
     int HealthyCellsLetThrough = 0;
     int HealthyCellsTerminated = 0;
     int CancerCellsLetThrough = 0;
@@ -39,11 +39,11 @@ public class GameManager : MonoBehaviour
     public CellDocuments ActiveDocument;
     
 
-    //Document ifnromationfor spawn
+    //Document information for spawn
     Vector3 DocumentStartingPosition;
     Quaternion DocumentStartingRotation;
 
-    //Document ifnromationfor spawn
+    //Document information for spawn
     Vector3 CellStartingPosition;
     Quaternion CellStartingRotation;
 
@@ -55,6 +55,8 @@ public class GameManager : MonoBehaviour
     public AudioManager audioManager;
 
     TutorialManager tutorialManager;
+
+    DeathGame miniGame;
     private void Start()
     {
         DocumentStartingPosition = new Vector3(Screen.width / 2, Screen.height / 2 - 200, 0f);
@@ -186,7 +188,6 @@ public class GameManager : MonoBehaviour
     {
         return CancerCellsLetThrough;
     }
-
 }
 
 

@@ -18,10 +18,7 @@ public class TempUIButtons : MonoBehaviour
     public GameManager gameManager;
     private void Update()
     {
-        healthAllow.text = "Healthy Allowed: " + gameManager.GetHealthyAllowed();
-        healthKill.text = "Healthy Killed: " + gameManager.GetHealthyTerminated();
-        cancerAllow.text = "Cancer Allowed: " + gameManager.GetCancerAllowed();
-        cancerKill.text = "Cancer Killed: " + gameManager.GetCancerTerminated();
+
     }
     public void GenerateButton()
     {
