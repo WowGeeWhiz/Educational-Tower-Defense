@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7793135454257526071
 MonoBehaviour:
@@ -45,9 +45,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edae876797af40149b0acf5cfa9ca5e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TCell1: {fileID: 1441055145231406984, guid: ad64665ed7e839f40a3714df9223b788, type: 3}
+  TCell2: {fileID: 5856732534564563438, guid: d60e36ddb06cd0542972c5ef456e0116, type: 3}
+  cellTemplate: {fileID: 0}
+  cancerCellSprite: {fileID: 0}
+  currentCell: {fileID: 0}
   CellGenerator: {fileID: 1710655679581622759}
   DocumentsUI: {fileID: 0}
-  DocumentItem: {fileID: 0}
+  DocumentTemplate: {fileID: 0}
+  ActiveDocument: {fileID: 0}
   audioManager: {fileID: 0}
 --- !u!114 &1710655679581622759
 MonoBehaviour:
