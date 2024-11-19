@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
 
     TutorialManager tutorialManager;
 
-    DeathGame miniGame;
+    //DeathGame miniGame;
     private void Start()
     {
         DocumentStartingPosition = new Vector3(Screen.width / 2, Screen.height / 2 - 200, 0f);
