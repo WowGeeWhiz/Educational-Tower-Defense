@@ -10,15 +10,15 @@ public class TempUIButtons : MonoBehaviour
     public GameObject killButton;
     public GameObject acceptButton;
     public GameObject documentButton;
-    public TMP_Text healthAllow;
-    public TMP_Text healthKill;
-    public TMP_Text cancerAllow;
-    public TMP_Text cancerKill;
+    public TMP_Text cancerKilled;
 
     public GameManager gameManager;
+
+    public Slider healthBar;
     private void Update()
     {
 
+        //cancerKilled.text = gameManager.GetCancerKilled() + "/" + gameManager.GetCancerKillsNeeded(); 
     }
     public void GenerateButton()
     {

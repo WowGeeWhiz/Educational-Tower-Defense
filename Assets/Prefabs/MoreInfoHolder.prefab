@@ -394,7 +394,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 500, y: 300}
+  m_SizeDelta: {x: 500, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7954551853198442921
 CanvasRenderer:
@@ -426,14 +426,24 @@ MonoBehaviour:
       m_Calls: []
   m_text: '<page>
 
-    <page>"Cell Nucleus Info
-
-    <page> Cell membrane info
+    <page>This is the brain of the cell that holds every
 
     <page>
-    destination info
+    This is like the cell''s skin which keeps everything inside of it
 
-    <page>MYC -aids in overproduction of the cancer cell
+    <page>
+    Every cell starts as a stem cell and can change to any kind of cell found in
+    the body! When the cell grows up it takes shape and has a job only it can complete.
+    If it finds itself in a different part of the body then something is probably
+    wrong...
+
+    <page>
+
+    Proteins are the building blocks of life and all of
+    them serve a different purpose. If you have too many of the wrong ones then you''re
+    in for a bad time.
+
+    MYC -aids in overproduction of the cancer cell
 
     CD47-
     helps hide the cell from the immune system
@@ -466,8 +476,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
