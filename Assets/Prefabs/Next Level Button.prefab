@@ -259,9 +259,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8789783029515668077}
-        m_TargetAssemblyTypeName: MenuButton, Assembly-CSharp
-        m_MethodName: LoadMainMenu
+      - m_Target: {fileID: 14720124353272834}
+        m_TargetAssemblyTypeName: NextSceneButton, Assembly-CSharp
+        m_MethodName: LoadNextScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -280,7 +280,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3239408667478299497}
-  - component: {fileID: 8789783029515668077}
+  - component: {fileID: 14720124353272834}
   m_Layer: 5
   m_Name: NextLevel
   m_TagString: Untagged
@@ -306,10 +306,10 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -843, y: 411}
+  m_AnchoredPosition: {x: -543, y: 211}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 1}
---- !u!114 &8789783029515668077
+--- !u!114 &14720124353272834
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -318,7 +318,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5297069211418122905}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e09b8ce153ebbe4fbcb802b94d9b115, type: 3}
+  m_Script: {fileID: 11500000, guid: ef91e023e39d84649ae1478c6aec4321, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6898577249795101766
