@@ -173,7 +173,6 @@ public class GameManager : MonoBehaviour
             {
                 cancerMultiplier = 1;
             }
-            TopofScreen.Play("Idle");
             //Trigger the tutorial pop-up when the first cell spawns
             if (tutorialManager != null)
             tutorialManager.TriggerCellSpawnTutorial();
