@@ -1609,22 +1609,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218226000041614452, guid: 73d7f322c46679249b44566da0cd72a5, type: 3}
       propertyPath: 'questionsInput.Array.data[0]'
-      value: Which of the following describes a healthy cell nucleolus?\There is
-        one, small nucleolus in the center\There are many, enlarged nucleoli\There
-        are many small nucleoli\There is a single, large nucleolus
+      value: What are "markers" on cancer cells?\Protein impressions that signal
+        they are damaged\The cell wearing the wrong colored hat\A big sign that says
+        "I'M CANCER!"\Labels that are used by the immune system to make sure they
+        keep the cell aliv
       objectReference: {fileID: 0}
     - target: {fileID: 4218226000041614452, guid: 73d7f322c46679249b44566da0cd72a5, type: 3}
       propertyPath: 'questionsInput.Array.data[1]'
-      value: Which of the following describes a healthy cell cytoplasm?\The cytoplasm
-        is large, and surrounds the nucleus\The cytoplasm is small, and is filled
-        up by the nucleolus\The cytoplasm is a not a uniform color\The cytoplasm
-        is small, with one large nucleolus
+      value: What does "protein impression" mean?\A unique pattern that appears on
+        the surface of the cell resembling its proteins\Proteins found in a healthy
+        cell\A copy of DNA from a healthy cell\A signal sent by the cell to try and
+        grow larger
       objectReference: {fileID: 0}
     - target: {fileID: 4218226000041614452, guid: 73d7f322c46679249b44566da0cd72a5, type: 3}
       propertyPath: 'questionsInput.Array.data[2]'
-      value: A cancer cell has which of the following traits?\Chaotic appearance\Even,
-        organized appearance\No variation in size or shape from other cells\No loss
-        of normal cell features
+      value: Why are protein impressions important?\They help train the immune system
+        to recognize cancer cells in the future\They make cancer cells grow faster\They
+        protect cancer cells from treatment and T Cells\They look cool, and doctors
+        like to look at them
       objectReference: {fileID: 0}
     - target: {fileID: 7860437610424966822, guid: 73d7f322c46679249b44566da0cd72a5, type: 3}
       propertyPath: m_Pivot.x

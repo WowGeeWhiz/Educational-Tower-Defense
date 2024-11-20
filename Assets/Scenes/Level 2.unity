@@ -1609,22 +1609,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218226000041614452, guid: 73d7f322c46679249b44566da0cd72a5, type: 3}
       propertyPath: 'questionsInput.Array.data[0]'
-      value: Which of the following describes a healthy cell nucleolus?\There is
-        one, small nucleolus in the center\There are many, enlarged nucleoli\There
-        are many small nucleoli\There is a single, large nucleolus
+      value: How does the immune system find cancer cells?\By recognizing deformaties\By
+        killing cells randomly and hoping for the best\By waiting around for the
+        cancer cells to announce themselves\By not doing anything, and pretending
+        the problem doesn't exist
       objectReference: {fileID: 0}
     - target: {fileID: 4218226000041614452, guid: 73d7f322c46679249b44566da0cd72a5, type: 3}
       propertyPath: 'questionsInput.Array.data[1]'
-      value: Which of the following describes a healthy cell cytoplasm?\The cytoplasm
-        is large, and surrounds the nucleus\The cytoplasm is small, and is filled
-        up by the nucleolus\The cytoplasm is a not a uniform color\The cytoplasm
-        is small, with one large nucleolus
+      value: What type of cells in the immune system attack cancer cells?\T-cells\White
+        Blood Cells\Red Blood Cells\Skin cells
       objectReference: {fileID: 0}
     - target: {fileID: 4218226000041614452, guid: 73d7f322c46679249b44566da0cd72a5, type: 3}
       propertyPath: 'questionsInput.Array.data[2]'
-      value: A cancer cell has which of the following traits?\Chaotic appearance\Even,
-        organized appearance\No variation in size or shape from other cells\No loss
-        of normal cell features
+      value: What happens when a cancer cell is discovered?\T-cells swarm it and
+        destroy it\It is arrested and thrown in jail\It is given a citation and a
+        court date\It is put in time-out
       objectReference: {fileID: 0}
     - target: {fileID: 7860437610424966822, guid: 73d7f322c46679249b44566da0cd72a5, type: 3}
       propertyPath: m_Pivot.x
