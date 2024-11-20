@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIScript : MonoBehaviour
 {
@@ -12,18 +13,33 @@ public class UIScript : MonoBehaviour
     public GameObject documentButton;
     public TMP_Text cancerKilled;
 
+    Button generate;
     public GameManager gameManager;
 
     public Slider healthBar;
+    public GameObject lossMenu;
+
+    public string nextLevelName;
+
     private void Start()
     {
         gameManager = FindAnyObjectByType<GameManager>();
+
+        generateButton.GetComponent<Button>().onClick.AddListener(() => { gameManager.GenerateCell(); });
+        killButton.GetComponent<Button>().onClick.AddListener( () => { gameManager.KillCell(); });
+        acceptButton.GetComponent<Button>().onClick.AddListener ( () => { gameManager.AcceptCell(); });
+        documentButton.GetComponent<Button>().onClick.AddListener( () => { gameManager.AcquireDocuments(); });
         healthBar.maxValue = gameManager.GetMistakesAllowed();
         healthBar.value = healthBar.maxValue;
+        UpdateCancerKilled();
     }
     public void UpdateHealthBar()
     {
-        healthBar.value = healthBar.maxValue - gameManager.GetCancerAllowed();
+        healthBar.value = healthBar.maxValue - gameManager.GetCancerAllowed() - gameManager.GetHealthyKilled();
+        if (healthBar.value == 0 )
+        {
+            lossMenu.SetActive( true );
+        }
     }
     public void UpdateCancerKilled()
     {
@@ -46,5 +62,17 @@ public class UIScript : MonoBehaviour
         killButton.SetActive(false);
         acceptButton.SetActive(false);
         generateButton.SetActive(true);
+    }
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().ToString());
+    }
+    public void NextLevel()
+    {
+        SceneManager.LoadScene(nextLevelName);
+    }
+    public void QuitToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }

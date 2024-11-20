@@ -12,7 +12,7 @@ public enum CellTypes { Stem, Blood, Bone, Skin, Muscle, Nerve};
 
 public class GameManager : MonoBehaviour
 {
-    private static GameManager _instance;
+    //private static GameManager _instance;
     public GameObject TCell1;
     public GameObject TCell2;
 
@@ -45,7 +45,8 @@ public class GameManager : MonoBehaviour
     //Spawned Document object that acts as the document on the table
     public CellDocuments ActiveDocument;
 
-    public UIScript ui;
+    UIScript ui;
+    Dialogue dialogueBox;
 
     //Document information for spawn
     Vector3 DocumentStartingPosition;
@@ -64,10 +65,11 @@ public class GameManager : MonoBehaviour
 
     TutorialManager tutorialManager;
 
-    DeathGame miniGame;
+    //DeathGame miniGame;
     private void Start()
     {
         ui = FindAnyObjectByType<UIScript>();
+        dialogueBox = FindAnyObjectByType<Dialogue>();
         DocumentStartingPosition = new Vector3(Screen.width / 2, Screen.height / 2 - 200, 0f);
         DocumentStartingRotation = new Quaternion(0f, 0f, 0f, 0f);
         CellStartingPosition = new Vector3(Screen.width/2,Screen.height/2 - 100, 0f);
@@ -89,15 +91,16 @@ public class GameManager : MonoBehaviour
     {
 
         //code to trigger animation used to kill cells
-
+        dialogueBox.negativePlayerResponse();
         if (!currentCell.GetCancerStatus())
         {
             healthyCellsKilled++;
+            ui.UpdateHealthBar();
         }
         else
         {
             cancerCellsKilled++;
-
+            ui.UpdateCancerKilled();
         }
         GameObject T1 = Instantiate(TCell1, new Vector3(-5, 0, 0), Quaternion.identity);
         GameObject T2 =Instantiate(TCell2, new Vector3(-5, 0, 0), Quaternion.identity);
@@ -105,6 +108,7 @@ public class GameManager : MonoBehaviour
         Destroy(T1);
         Destroy(T2);
         DestroyPrefabs();
+        dialogueBox.ClearText();
         //Trigger scoreboard tutorial
         if (tutorialManager != null)
         tutorialManager.TriggerScoreboardTutorial();
@@ -144,6 +148,7 @@ public class GameManager : MonoBehaviour
      */
     public void GenerateCell()
     {
+        dialogueBox.playerResponse(0);
         if (currentCell == null)
         {
             currentCell = Instantiate(cellTemplate, CellStartingPosition, CellStartingRotation, DocumentsUI);
@@ -171,6 +176,7 @@ public class GameManager : MonoBehaviour
     }
     public void AcquireDocuments()
     {
+        dialogueBox.playerResponse(1);
         //public static Object Instantiate(Object original, Vector3 position, Quaternion rotation, Transform parent);
         if (!ActiveDocument.gameObject.activeInHierarchy)
         {
