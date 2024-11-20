@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
+//think about how to implement halfway healthbar
 public enum Locations { Brain, Liver, Lungs, Bones, Kidney, Nerves };
 public enum CellTypes { Stem, Blood, Bone, Skin, Muscle, Nerve};
 
@@ -18,13 +19,17 @@ public class GameManager : MonoBehaviour
     bool gameStart = false; 
     float timeTillLevelEnd;
 
+    //Level requirements
     public int HealthyCellsNeeded;
-    int HealthyCellsLetThrough = 0;
-    int HealthyCellsTerminated = 0;
-    int CancerCellsLetThrough = 0;
-    int CancerCellsTerminated = 0;
+    public int cancerKillsNeeded;
+    public int mistakesAllowed;
 
-    //Prefab of cecll
+    int healthyCellsAllowed = 0;
+    int healthyCellsKilled = 0;
+    int cancerCellsAllowed = 0;
+    int cancerCellsKilled = 0;
+
+    //Prefab of cell
     public Cell cellTemplate;
     public Sprite cancerCellSprite;
     //Actual Cell object that will be manipulated
@@ -70,14 +75,10 @@ public class GameManager : MonoBehaviour
         if(tutorialManager != null )
         tutorialManager.WelcomePopUps();
     }
-
-
     // Cell Management
-
     /*
      * 
      */
-
     public void KillCell()
     {
         StartCoroutine(KillC());
@@ -89,11 +90,11 @@ public class GameManager : MonoBehaviour
 
         if (!currentCell.GetCancerStatus())
         {
-            HealthyCellsTerminated++;
+            healthyCellsKilled++;
         }
         else
         {
-            CancerCellsTerminated++;
+            cancerCellsKilled++;
 
         }
         GameObject T1 = Instantiate(TCell1, new Vector3(-5, 0, 0), Quaternion.identity);
@@ -101,15 +102,9 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(3);
         Destroy(T1);
         Destroy(T2);
-        currentCell.gameObject.SetActive(false);
-        Destroy(currentCell.gameObject);
-        currentCell = null;
-        ActiveDocument.gameObject.SetActive(false);
-        Destroy(ActiveDocument.gameObject);
-        ActiveDocument = null;
-
+        DestroyPrefabs();
         //Trigger scoreboard tutorial
-        if(tutorialManager != null)
+        if (tutorialManager != null)
         tutorialManager.TriggerScoreboardTutorial();
     }
     /*
@@ -117,26 +112,30 @@ public class GameManager : MonoBehaviour
      */
     public void AcceptCell()
     {
+
         if(!currentCell.GetCancerStatus())
         {
-            HealthyCellsLetThrough++;
+            healthyCellsAllowed++;
         }
         else
         {
-            CancerCellsLetThrough++;
+            cancerCellsAllowed++;
         }
+        DestroyPrefabs();
+        //Trigger scoreboard tutorial
+        if (tutorialManager != null)
+        tutorialManager.TriggerScoreboardTutorial();
+    }
+
+    void DestroyPrefabs()
+    {
         currentCell.gameObject.SetActive(false);
         Destroy(currentCell.gameObject);
         currentCell = null;
         ActiveDocument.gameObject.SetActive(false);
         Destroy(ActiveDocument.gameObject);
         ActiveDocument = null;
-
-        //Trigger scoreboard tutorial
-        if(tutorialManager != null)
-        tutorialManager.TriggerScoreboardTutorial();
     }
-
     /*
      * Meant to be called after a cell is called in after the previous cell is either terminated or let through.
      */
@@ -181,24 +180,27 @@ public class GameManager : MonoBehaviour
         tutorialManager.TriggerDocumentTutorial();
 
     }
-
+    public int GetCancerKillsNeeded()
+    {
+        return cancerKillsNeeded;
+    }
 
     //Methods that grab information from the gamemanger class
-    public int GetHealthyTerminated()
+    public int GetHealthyKilled()
     {
-        return HealthyCellsTerminated;
+        return healthyCellsKilled;
     }
     public int GetHealthyAllowed()
     {
-        return HealthyCellsLetThrough;
+        return healthyCellsAllowed;
     }
-    public int GetCancerTerminated()
+    public int GetCancerKilled()
     {
-        return CancerCellsTerminated;
+        return cancerCellsKilled;
     }
     public int GetCancerAllowed()
     {
-        return CancerCellsLetThrough;
+        return cancerCellsAllowed;
     }
 }
 
