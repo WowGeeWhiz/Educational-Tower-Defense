@@ -740,7 +740,7 @@ RectTransform:
   - {fileID: 7586543255449807563}
   - {fileID: 2004268718349366436}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -766,9 +766,15 @@ MonoBehaviour:
   - {fileID: 4941534392893937655}
   questionDisplay: {fileID: 5460958969297651247}
   questionsInput:
-  - test question1\correct answer\incorrect answer1\incorrect answer2\incorrect answer3
-  - test question2\correct answer\incorrect answer1\incorrect answer2\incorrect answer3
-  - test question3\correct answer\incorrect answer1\incorrect answer2\incorrect answer3
+  - How does the immune system find cancer cells?\By recognizing them as damaged,
+    or that they have the wrong protein impression\By waiting for them to grow larger\By
+    killing some randomly and hoping for the best\They don't find them, they pretend
+    everything is fine
+  - What type of cells attack the cancer cells once they're uncovered?\T-Cells\Red
+    blood cells\White blood cells\Skin cells
+  - What happens to the cells that are detected?\T-Cells attach themselves to them
+    and destroy them\They are thrown in jail\They are assigned an attorny and given
+    a court date\They go free and unpunished
 --- !u!1 &3737900371147161505
 GameObject:
   m_ObjectHideFlags: 0
