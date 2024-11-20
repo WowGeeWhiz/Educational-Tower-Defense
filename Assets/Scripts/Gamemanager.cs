@@ -13,6 +13,8 @@ public enum CellTypes { Stem, Blood, Bone, Skin, Muscle, Nerve};
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
+    public GameObject TCell1;
+    public GameObject TCell2;
 
     bool gameStart = false; 
     float timeTillLevelEnd;
@@ -74,12 +76,16 @@ public class GameManager : MonoBehaviour
         tutorialManager.WelcomePopUps();
     }
     // Cell Management
-
     /*
      * 
      */
     public void KillCell()
     {
+        StartCoroutine(KillC());
+    }
+    IEnumerator KillC()
+    {
+
         //code to trigger animation used to kill cells
 
         if (!currentCell.GetCancerStatus())
@@ -91,6 +97,11 @@ public class GameManager : MonoBehaviour
             cancerCellsKilled++;
 
         }
+        GameObject T1 = Instantiate(TCell1, new Vector3(-5, 0, 0), Quaternion.identity);
+        GameObject T2 =Instantiate(TCell2, new Vector3(-5, 0, 0), Quaternion.identity);
+        yield return new WaitForSeconds(3);
+        Destroy(T1);
+        Destroy(T2);
         DestroyPrefabs();
         //Trigger scoreboard tutorial
         if (tutorialManager != null)
