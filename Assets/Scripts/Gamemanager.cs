@@ -152,7 +152,10 @@ public class GameManager : MonoBehaviour
         dialogueBox.playerResponse(0);
         if (currentCell == null)
         {
-            TopofScreen.Play("Move");
+            if (TopofScreen != null)
+            {
+                TopofScreen.Play("Move");
+            }
             currentCell = Instantiate(cellTemplate, CellStartingPosition, CellStartingRotation, DocumentsUI);
             ActiveDocument = Instantiate(DocumentTemplate, DocumentStartingPosition, DocumentStartingRotation, DocumentsUI);
             CellGenerator.GenerateCell(0.33f * cancerMultiplier, 5, currentCell, ActiveDocument);

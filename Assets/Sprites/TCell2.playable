@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
   m_Name: Signal Emitter
   m_EditorClassIdentifier: 
-  m_Time: 1.25
+  m_Time: 1.3333333333333333
   m_Retroactive: 0
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: 2e47b387ea28c0f4cb73d053de4f2604, type: 2}
@@ -118,15 +118,15 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.98333335
         value: {x: 11.870001, y: -0.13000011, z: 0}
-        inSlope: {x: 4.8399963, y: 0, z: 0}
-        outSlope: {x: 4.8399963, y: 0, z: 0}
+        inSlope: {x: 3.479996, y: 0, z: 0}
+        outSlope: {x: 3.479996, y: 0, z: 0}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 1.5
-        value: {x: 13.08, y: 0, z: 0}
+        value: {x: 12.74, y: 0, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -319,15 +319,15 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.98333335
         value: 11.870001
-        inSlope: 4.8399963
-        outSlope: 4.8399963
+        inSlope: 3.479996
+        outSlope: 3.479996
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1.5
-        value: 13.08
+        value: 12.74
         inSlope: 0
         outSlope: 0
         tangentMode: 136
