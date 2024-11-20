@@ -16,7 +16,12 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("Tutorial");
     }
 
-    public void PlayLevelOne()
+    public void LoadLevelSelect()
+    {
+        SceneManager.LoadScene("LevelSelect");
+    }
+
+    public void PlaySampleLevel()
     {
         SceneManager.LoadScene(2);
     }
@@ -29,5 +34,21 @@ public class MainMenu : MonoBehaviour
     public void quitGame()
     {
         Application.Quit();
+    }
+
+    //Functions for level select
+    public void PlayFirstLevel()
+    {
+        SceneManager.LoadScene("Level 1");
+    }
+
+    public void PlaySecondLevel()
+    {
+        SceneManager.LoadScene("Level 2");
+    }
+
+    public void PlayThirdLevel()
+    {
+        SceneManager.LoadScene("Level 3");
     }
 }

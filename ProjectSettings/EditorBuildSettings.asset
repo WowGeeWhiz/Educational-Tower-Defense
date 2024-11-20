@@ -15,11 +15,23 @@ EditorBuildSettings:
     path: Assets/Scenes/LevelForMidterm.unity
     guid: bf0f60c67021994469cf9b0ce7404125
   - enabled: 1
+    path: Assets/Scenes/LevelSelect.unity
+    guid: 5f4af28293c25834585ede85176d34a9
+  - enabled: 1
     path: Assets/Scenes/QuizScene.unity
     guid: a43d948e5370737429be504b39849158
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 3fc8acdd13e6c734bafef6554d6fdbcd
+  - enabled: 1
+    path: Assets/Scenes/Level 1.unity
+    guid: 14d2131e358588b4d8f73f4a0fdd2326
+  - enabled: 1
+    path: Assets/Scenes/Level 2.unity
+    guid: 499205048eff89d4e9ba404af30dc619
+  - enabled: 1
+    path: Assets/Scenes/Level 3.unity
+    guid: 208f77933d6644a448d1c9ef4d0abc7a
   m_configObjects:
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 73469ef6686e67e4fa2d4eec92e5fb15, type: 2}
   m_UseUCBPForAssetBundles: 0
