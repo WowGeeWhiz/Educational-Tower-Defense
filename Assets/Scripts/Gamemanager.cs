@@ -44,7 +44,8 @@ public class GameManager : MonoBehaviour
 
     //Spawned Document object that acts as the document on the table
     public CellDocuments ActiveDocument;
-    
+
+    public UIScript ui;
 
     //Document information for spawn
     Vector3 DocumentStartingPosition;
@@ -66,6 +67,7 @@ public class GameManager : MonoBehaviour
     DeathGame miniGame;
     private void Start()
     {
+        ui = FindAnyObjectByType<UIScript>();
         DocumentStartingPosition = new Vector3(Screen.width / 2, Screen.height / 2 - 200, 0f);
         DocumentStartingRotation = new Quaternion(0f, 0f, 0f, 0f);
         CellStartingPosition = new Vector3(Screen.width/2,Screen.height/2 - 100, 0f);
@@ -120,6 +122,7 @@ public class GameManager : MonoBehaviour
         else
         {
             cancerCellsAllowed++;
+            ui.UpdateHealthBar();
         }
         DestroyPrefabs();
         //Trigger scoreboard tutorial
@@ -201,6 +204,10 @@ public class GameManager : MonoBehaviour
     public int GetCancerAllowed()
     {
         return cancerCellsAllowed;
+    }
+    public int GetMistakesAllowed()
+    {
+        return mistakesAllowed;
     }
 }
 

@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TempUIButtons : MonoBehaviour
+public class UIScript : MonoBehaviour
 {
     public GameObject generateButton;
     public GameObject killButton;
@@ -15,10 +15,19 @@ public class TempUIButtons : MonoBehaviour
     public GameManager gameManager;
 
     public Slider healthBar;
-    private void Update()
+    private void Start()
     {
-
-        //cancerKilled.text = gameManager.GetCancerKilled() + "/" + gameManager.GetCancerKillsNeeded(); 
+        gameManager = FindAnyObjectByType<GameManager>();
+        healthBar.maxValue = gameManager.GetMistakesAllowed();
+        healthBar.value = healthBar.maxValue;
+    }
+    public void UpdateHealthBar()
+    {
+        healthBar.value = healthBar.maxValue - gameManager.GetCancerAllowed();
+    }
+    public void UpdateCancerKilled()
+    {
+        cancerKilled.text = gameManager.GetCancerKilled() + "/" + gameManager.GetCancerKillsNeeded();
     }
     public void GenerateButton()
     {
