@@ -107,7 +107,7 @@ public class TutorialManager : MonoBehaviour
         //if stepIndex <=1 
         if(stepIndex> 6)
         {
-            SceneManager.LoadScene("LevelForMidterm");
+            SceneManager.LoadScene("Level 1");
         }
         if(stepIndex <= 1 || stepIndex == 6)
         {

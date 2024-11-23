@@ -80,6 +80,13 @@ public class GameManager : MonoBehaviour
         if(tutorialManager != null )
         tutorialManager.WelcomePopUps();
     }
+
+    private void Update()
+    {
+        Invoke("LoadQuizScene", 5);
+        //LoadQuizScene();
+    }
+
     // Cell Management
     /*
      * 
@@ -193,6 +200,52 @@ public class GameManager : MonoBehaviour
         tutorialManager.TriggerDocumentTutorial();
 
     }
+
+    private void LoadQuizScene()
+    {
+        if (GetCancerKilled() == GetCancerKillsNeeded())
+        {
+            //Find quiz object in scene and load it
+            GameObject quizManager = GameObject.Find("QuizManager");
+            GameObject MainUI = GameObject.Find("MainUI");
+            GameObject Camera = GameObject.Find("Main Camera");
+            Transform backgroundTransform = Camera.transform.Find("Background");
+
+            if (backgroundTransform != null)
+            {
+                //Set the Background GameObject to inactive
+                backgroundTransform.gameObject.SetActive(false);
+                Debug.Log("Background component has been set to inactive.");
+            }
+            //Deactivate the main UI
+            if (MainUI != null)
+            {
+                MainUI.SetActive(false);                
+            }
+
+            if (quizManager != null)
+            {
+                CanvasGroup canvasGroup = quizManager.GetComponent<CanvasGroup>();
+                if(canvasGroup != null)
+                {
+                    //Make it visibile
+                    canvasGroup.alpha = 1; 
+                    canvasGroup.interactable = true;
+                    //Don't allow clicks on objects behind the quiz
+                    canvasGroup.blocksRaycasts = true;
+                }
+                else
+                {
+                    Debug.LogError("CanvasGroup component not found on QuizManager.");
+                }
+            }
+            else
+            {
+                Debug.LogError("QuizManager not found in scene");
+            }
+        }
+    }
+
     public int GetCancerKillsNeeded()
     {
         return cancerKillsNeeded;
