@@ -47,10 +47,13 @@ public class UIScript : MonoBehaviour
     }
     public void GenerateButton()
     {
-        generateButton.SetActive(false);
-        killButton.SetActive(true);
-        acceptButton.SetActive(true);
-        documentButton.SetActive(true);
+        if (gameManager.currentCell == null)
+        {
+            generateButton.SetActive(false);
+            killButton.SetActive(true);
+            acceptButton.SetActive(true);
+            documentButton.SetActive(true);
+        }
     }
     public void DocumentButton()
     {
