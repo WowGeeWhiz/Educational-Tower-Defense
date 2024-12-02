@@ -426,30 +426,30 @@ MonoBehaviour:
       m_Calls: []
   m_text: '<page>
 
-    <page>This is the brain of the cell that holds every
+    <page>This is the brain of the cell that holds every all of
+    the information that you body needs to function
+
+    <page> This is like the
+    cell''s skin which keeps everything inside of it
+
+    <page> Every cell starts
+    as a stem cell and can change to any kind of cell found in the body! When the
+    cell grows up it takes shape and has a job only it can complete. If it finds
+    itself in a different part of the body then something is probably wrong...
 
     <page>
-    This is like the cell''s skin which keeps everything inside of it
 
-    <page>
-    Every cell starts as a stem cell and can change to any kind of cell found in
-    the body! When the cell grows up it takes shape and has a job only it can complete.
-    If it finds itself in a different part of the body then something is probably
-    wrong...
+    Proteins
+    are the building blocks of life and all of them serve a different purpose. If
+    you have too many of the wrong ones then you''re in for a bad time.
 
-    <page>
+    MYC
+    -aids in overproduction of the cancer cell
 
-    Proteins are the building blocks of life and all of
-    them serve a different purpose. If you have too many of the wrong ones then you''re
-    in for a bad time.
+    CD47- helps hide the cell from
+    the immune system
 
-    MYC -aids in overproduction of the cancer cell
-
-    CD47-
-    helps hide the cell from the immune system
-
-    PD-L1 - prevents the immune system
-    from eating the cell'
+    PD-L1 - prevents the immune system from eating the cell'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
