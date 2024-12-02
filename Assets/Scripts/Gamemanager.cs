@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
 
     UIScript ui;
     Dialogue dialogueBox;
+    bool run = false;
 
     //Document information for spawn
     Vector3 DocumentStartingPosition;
@@ -79,6 +80,14 @@ public class GameManager : MonoBehaviour
         //Trigger the first tutorial step when the tutorial level starts
         if(tutorialManager != null )
         tutorialManager.WelcomePopUps();
+    }
+
+    void Update()
+    {
+        if(currentCell != null && run)
+        {
+            currentCell.gameObject.transform.localPosition += new Vector3(10f * Time.deltaTime,0,0);
+        }
     }
     // Cell Management
     /*
@@ -119,8 +128,12 @@ public class GameManager : MonoBehaviour
      */
     public void AcceptCell()
     {
-
-        if(!currentCell.GetCancerStatus())
+        StartCoroutine(AcceptC());
+    }
+    IEnumerator AcceptC()
+    {
+        run = true;
+        if (!currentCell.GetCancerStatus())
         {
             healthyCellsAllowed++;
         }
@@ -129,6 +142,8 @@ public class GameManager : MonoBehaviour
             cancerCellsAllowed++;
             ui.UpdateHealthBar();
         }
+        yield return new WaitForSeconds(1.5f);
+        run = false;
         DestroyPrefabs();
         //Trigger scoreboard tutorial
         if (tutorialManager != null)
@@ -156,12 +171,12 @@ public class GameManager : MonoBehaviour
             {
                 TopofScreen.Play("Move");
             }
-            currentCell = Instantiate(cellTemplate, CellStartingPosition, CellStartingRotation, DocumentsUI);
+            currentCell = Instantiate(cellTemplate,new Vector3(-2,0,0), CellStartingRotation);
             ActiveDocument = Instantiate(DocumentTemplate, DocumentStartingPosition, DocumentStartingRotation, DocumentsUI);
             CellGenerator.GenerateCell(0.33f * cancerMultiplier, 5, currentCell, ActiveDocument);
             if(currentCell.GetCancerStatus())
             {
-                Image cellImage = currentCell.GetComponent<Image>();
+                SpriteRenderer cellImage = currentCell.GetComponent<SpriteRenderer>();
                 cellImage.sprite = cancerCellSprite;
             }
             ActiveDocument.gameObject.SetActive(false);
