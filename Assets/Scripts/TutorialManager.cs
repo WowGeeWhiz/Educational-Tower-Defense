@@ -93,7 +93,6 @@ public class TutorialManager : MonoBehaviour
             }
 
             //Update the text for the current step
-            Debug.Log(stepIndex);
             tutorialText.text = tutorialSteps[stepIndex];
         }
         else
