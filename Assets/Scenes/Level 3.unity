@@ -133,6 +133,10 @@ PrefabInstance:
       value: GameManager
       objectReference: {fileID: 0}
     - target: {fileID: 7793135454257526071, guid: 0aa51c1202e32ba4e9c56051ea766337, type: 3}
+      propertyPath: PE
+      value: 
+      objectReference: {fileID: 1557143512}
+    - target: {fileID: 7793135454257526071, guid: 0aa51c1202e32ba4e9c56051ea766337, type: 3}
       propertyPath: cancerCell
       value: 
       objectReference: {fileID: 1127606810288918557, guid: 308f6d552b67ef74eab72bfeba113012, type: 3}
@@ -2637,6 +2641,11 @@ PrefabInstance:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7860437610424966822, guid: 73d7f322c46679249b44566da0cd72a5, type: 3}
   m_PrefabInstance: {fileID: 1486046996}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1557143512 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6850594626083947016, guid: 85401092cdd90aa43be1dbbdff0c5ddd, type: 3}
+  m_PrefabInstance: {fileID: 1429867594}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1560306766
 GameObject:

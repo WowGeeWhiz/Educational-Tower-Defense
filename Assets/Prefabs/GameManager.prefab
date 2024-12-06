@@ -49,15 +49,17 @@ MonoBehaviour:
   TCell2: {fileID: 5856732534564563438, guid: d60e36ddb06cd0542972c5ef456e0116, type: 3}
   TopofScreen: {fileID: 0}
   HealthyCellsNeeded: 0
-  cancerKillsNeeded: 0
-  mistakesAllowed: 0
+  cancerKillsNeeded: 5
+  mistakesAllowed: 10
   cellTemplate: {fileID: 3790516486116178104, guid: b01effa4da4e5144f99987d92f3c8611, type: 3}
-  cancerCellSprite: {fileID: 0}
+  cancerCellSprite: {fileID: 1127606810288918557, guid: 308f6d552b67ef74eab72bfeba113012, type: 3}
+  PE: {fileID: 0}
   currentCell: {fileID: 0}
   CellGenerator: {fileID: 1710655679581622759}
   DocumentsUI: {fileID: 0}
-  DocumentTemplate: {fileID: 0}
+  DocumentTemplate: {fileID: 8699486129657160941, guid: d7c181ab399e65648b4348301a81a077, type: 3}
   ActiveDocument: {fileID: 0}
+  CellAnim: {fileID: 3262212506538078932, guid: 03aa552665e54b04483e2217a286c2e2, type: 3}
   audioManager: {fileID: 0}
 --- !u!114 &1710655679581622759
 MonoBehaviour:
