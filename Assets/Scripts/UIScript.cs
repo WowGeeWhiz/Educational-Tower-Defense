@@ -12,7 +12,7 @@ public class UIScript : MonoBehaviour
     public GameObject acceptButton;
     public GameObject documentButton;
     public TMP_Text cancerKilled;
-
+    Button killButtonButton;
     Button generate;
     public GameManager gameManager;
 
@@ -26,7 +26,8 @@ public class UIScript : MonoBehaviour
         gameManager = FindAnyObjectByType<GameManager>();
 
         generateButton.GetComponent<Button>().onClick.AddListener(() => { gameManager.GenerateCell(); });
-        killButton.GetComponent<Button>().onClick.AddListener( () => { gameManager.KillCell(); });
+        killButtonButton = killButton.GetComponent<Button>();
+        killButtonButton.onClick.AddListener( () => { gameManager.KillCell(); });
         acceptButton.GetComponent<Button>().onClick.AddListener ( () => { gameManager.AcceptCell(); });
         documentButton.GetComponent<Button>().onClick.AddListener( () => { gameManager.AcquireDocuments(); });
         healthBar.maxValue = gameManager.GetMistakesAllowed();
@@ -50,7 +51,7 @@ public class UIScript : MonoBehaviour
         if (gameManager.currentCell == null)
         {
             generateButton.SetActive(false);
-            killButton.SetActive(true);
+            killButtonButton.interactable = true;
             acceptButton.SetActive(true);
             documentButton.SetActive(true);
         }
@@ -62,7 +63,7 @@ public class UIScript : MonoBehaviour
     public void ChoiceButtons()
     {
         documentButton.SetActive(false);
-        killButton.SetActive(false);
+        killButtonButton.interactable= false;
         acceptButton.SetActive(false);
         generateButton.SetActive(true);
     }

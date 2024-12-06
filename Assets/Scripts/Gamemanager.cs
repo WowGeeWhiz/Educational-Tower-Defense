@@ -106,7 +106,7 @@ public class GameManager : MonoBehaviour
     {
 
         //code to trigger animation used to kill cells
-        dialogueBox.negativePlayerResponse();
+        //dialogueBox.negativePlayerResponse();
         if (!currentCell.GetCancerStatus())
         {
             healthyCellsKilled++;
@@ -125,7 +125,7 @@ public class GameManager : MonoBehaviour
         Destroy(T1);
         Destroy(T2);
         DestroyPrefabs();
-        dialogueBox.ClearText();
+        //dialogueBox.ClearText();
         //Trigger scoreboard tutorial
         if (tutorialManager != null)
         tutorialManager.TriggerScoreboardTutorial();
@@ -173,7 +173,7 @@ public class GameManager : MonoBehaviour
      */
     public void GenerateCell()
     {
-        dialogueBox.playerResponse(0);
+        //dialogueBox.playerResponse(0);
         if (currentCell == null)
         {
             if (TopofScreen != null)
@@ -204,7 +204,7 @@ public class GameManager : MonoBehaviour
     }
     public void AcquireDocuments()
     {
-        dialogueBox.playerResponse(1);
+        //dialogueBox.playerResponse(1);
         //public static Object Instantiate(Object original, Vector3 position, Quaternion rotation, Transform parent);
         if (!ActiveDocument.gameObject.activeInHierarchy)
         {

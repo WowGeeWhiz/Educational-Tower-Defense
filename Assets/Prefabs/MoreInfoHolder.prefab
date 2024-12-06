@@ -424,32 +424,19 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<page>
-
-    <page>This is the brain of the cell that holds every
-
-    <page>
-    This is like the cell''s skin which keeps everything inside of it
-
-    <page>
-    Every cell starts as a stem cell and can change to any kind of cell found in
-    the body! When the cell grows up it takes shape and has a job only it can complete.
-    If it finds itself in a different part of the body then something is probably
-    wrong...
-
-    <page>
-
-    Proteins are the building blocks of life and all of
-    them serve a different purpose. If you have too many of the wrong ones then you''re
-    in for a bad time.
-
-    MYC -aids in overproduction of the cancer cell
-
-    CD47-
-    helps hide the cell from the immune system
-
-    PD-L1 - prevents the immune system
-    from eating the cell'
+  m_text: "<page>\n<page>-Brain of the cell\n-Holds all the information of the cell\n-Life
+    likes pretty circles, it it's not smooth and round it's bad\n-There should only
+    be a single nucleus in the cell unless they're multiplying\n<page>-Skin that
+    keeps everything together\n-Controls what goes in and out\n-Life likes pretty
+    circles, it it's not smooth and round it's bad\n<page>-Cells start as a stem
+    celll\n-Can change to any kind of cell found in the body\n-When the cell grows
+    up it takes shape and has a job only it can complete\n-if cell name doesn't match
+    its purpose, something is wrong\n-Stem cells can be found anywhere \n<page>-Proteins
+    are the building blocks of life\n-All of them serve a different purpose\n-Even
+    one misplaced protein can cause big issues\nBelow are examples of proteins that
+    can be problematic\n- C-MYC -aids in overproduction of the cancer cell\n- CD47-
+    helps hide the cell from the immune system\n- PD-L1 - prevents the immune system
+    from eating the cell"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -483,7 +470,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0

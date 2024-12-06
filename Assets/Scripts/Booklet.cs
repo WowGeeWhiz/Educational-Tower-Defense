@@ -10,11 +10,13 @@ public class Booklet : MonoBehaviour
     public GameObject nextPage;
     public TMP_Text pageNum;
     public GameObject moreInfoButton;
-    
+
     public GameObject moreInfoText;
     public TMP_Text infoTitle;
     public TMP_Text moreInfoBody;
-    
+
+    public GameObject healthyCell;
+    public GameObject unHealthyCell;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +36,7 @@ public class Booklet : MonoBehaviour
         {
             nextPage.SetActive(false);
         }
+        SetCellImages();
         SetPageText();
     }
     public void PreviousPage()
@@ -43,10 +46,11 @@ public class Booklet : MonoBehaviour
             nextPage.SetActive(true);
         }
         pageText.pageToDisplay--;
-        if(pageText.pageToDisplay == 1)
+        if (pageText.pageToDisplay == 1)
         {
-            prevPage.SetActive( false );
+            prevPage.SetActive(false);
         }
+        SetCellImages();
         SetPageText();
     }
     void SetPageText()
@@ -69,5 +73,18 @@ public class Booklet : MonoBehaviour
         moreInfoText.SetActive(true);
         infoTitle.pageToDisplay = pageText.pageToDisplay;
         moreInfoBody.pageToDisplay = pageText.pageToDisplay;
+    }
+    void SetCellImages()
+    {
+        if (pageText.pageToDisplay == 3 || pageText.pageToDisplay == 4)
+        {
+            healthyCell.SetActive(true);
+            unHealthyCell.SetActive(true);
+        }
+        else
+        {
+            healthyCell.SetActive(false);
+            unHealthyCell.SetActive(false);
+        }
     }
 }
