@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     //Prefab of cell
     public Cell cellTemplate;
     public Sprite cancerCellSprite;
+    public ParticleSystem PE;
     //Actual Cell object that will be manipulated
     public Cell currentCell;
     //Script that generates random cells
@@ -45,6 +46,8 @@ public class GameManager : MonoBehaviour
 
     //Spawned Document object that acts as the document on the table
     public CellDocuments ActiveDocument;
+
+    public GameObject CellAnim;
 
     UIScript ui;
     Dialogue dialogueBox;
@@ -116,7 +119,9 @@ public class GameManager : MonoBehaviour
         }
         GameObject T1 = Instantiate(TCell1, new Vector3(-5, 0, 0), Quaternion.identity);
         GameObject T2 =Instantiate(TCell2, new Vector3(-5, 0, 0), Quaternion.identity);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1.5f);
+        PE.Play();
+        yield return new WaitForSeconds(1.0f);
         Destroy(T1);
         Destroy(T2);
         DestroyPrefabs();
@@ -144,12 +149,14 @@ public class GameManager : MonoBehaviour
             cancerCellsAllowed++;
             ui.UpdateHealthBar();
         }
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.3f);
         run = false;
         DestroyPrefabs();
+
         //Trigger scoreboard tutorial
         if (tutorialManager != null)
         tutorialManager.TriggerScoreboardTutorial();
+        Destroy(Instantiate(CellAnim, new Vector3(-1.3f, 4, -1), Quaternion.identity), 1.5f);
     }
 
     void DestroyPrefabs()
@@ -173,7 +180,7 @@ public class GameManager : MonoBehaviour
             {
                 TopofScreen.Play("Move");
             }
-            currentCell = Instantiate(cellTemplate,new Vector3(-2,0,0), CellStartingRotation);
+            currentCell = Instantiate(cellTemplate,new Vector3(-2,0,-1), CellStartingRotation);
             ActiveDocument = Instantiate(DocumentTemplate, DocumentStartingPosition, DocumentStartingRotation, DocumentsUI);
             CellGenerator.GenerateCell(0.33f * cancerMultiplier, 5, currentCell, ActiveDocument);
             if(currentCell.GetCancerStatus())
