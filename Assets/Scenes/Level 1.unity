@@ -1624,154 +1624,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1001 &817573705
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1614508982013961644, guid: 73d7f322c46679249b44566da0cd72a5, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 550
-      objectReference: {fileID: 0}
-    - target: {fileID: 1614508982013961644, guid: 73d7f322c46679249b44566da0cd72a5, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 550
-      objectReference: {fileID: 0}
-    - target: {fileID: 1614508982013961644, guid: 73d7f322c46679249b44566da0cd72a5, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 3222355890657862401, guid: 73d7f322c46679249b44566da0cd72a5, type: 3}
-      propertyPath: m_Name
-      value: QuizManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 3222355890657862401, guid: 73d7f322c46679249b44566da0cd72a5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4218226000041614452, guid: 73d7f322c46679249b44566da0cd72a5, type: 3}
-      propertyPath: 'questionsInput.Array.data[0]'
-      value: Which of the following describes a healthy cell nucleolus?\There is
-        one, small nucleolus in the center\There are many, enlarged nucleoli\There
-        are many small nucleoli\There is a single, large nucleolus
-      objectReference: {fileID: 0}
-    - target: {fileID: 4218226000041614452, guid: 73d7f322c46679249b44566da0cd72a5, type: 3}
-      propertyPath: 'questionsInput.Array.data[1]'
-      value: Which of the following describes a healthy cell cytoplasm?\The cytoplasm
-        is large, and surrounds the nucleus\The cytoplasm is small, and is filled
-        up by the nucleolus\The cytoplasm is a not a uniform color\The cytoplasm
-        is small, with one large nucleolus
-      objectReference: {fileID: 0}
-    - target: {fileID: 4218226000041614452, guid: 73d7f322c46679249b44566da0cd72a5, type: 3}
-      propertyPath: 'questionsInput.Array.data[2]'
-      value: A cancer cell has which of the following traits?\Chaotic appearance\Even,
-        organized appearance\No variation in size or shape from other cells\No loss
-        of normal cell features
-      objectReference: {fileID: 0}
-    - target: {fileID: 5460958969297651247, guid: 73d7f322c46679249b44566da0cd72a5, type: 3}
-      propertyPath: m_fontSize
-      value: 36
-      objectReference: {fileID: 0}
-    - target: {fileID: 5460958969297651247, guid: 73d7f322c46679249b44566da0cd72a5, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 36
-      objectReference: {fileID: 0}
-    - target: {fileID: 5992576689732091619, guid: 73d7f322c46679249b44566da0cd72a5, type: 3}
-      propertyPath: m_PresetInfoIsWorld
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7860437610424966822, guid: 73d7f322c46679249b44566da0cd72a5, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7860437610424966822, guid: 73d7f322c46679249b44566da0cd72a5, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7860437610424966822, guid: 73d7f322c46679249b44566da0cd72a5, type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7860437610424966822, guid: 73d7f322c46679249b44566da0cd72a5, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7860437610424966822, guid: 73d7f322c46679249b44566da0cd72a5, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7860437610424966822, guid: 73d7f322c46679249b44566da0cd72a5, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7860437610424966822, guid: 73d7f322c46679249b44566da0cd72a5, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7860437610424966822, guid: 73d7f322c46679249b44566da0cd72a5, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 7860437610424966822, guid: 73d7f322c46679249b44566da0cd72a5, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 7860437610424966822, guid: 73d7f322c46679249b44566da0cd72a5, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7860437610424966822, guid: 73d7f322c46679249b44566da0cd72a5, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7860437610424966822, guid: 73d7f322c46679249b44566da0cd72a5, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7860437610424966822, guid: 73d7f322c46679249b44566da0cd72a5, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7860437610424966822, guid: 73d7f322c46679249b44566da0cd72a5, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7860437610424966822, guid: 73d7f322c46679249b44566da0cd72a5, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7860437610424966822, guid: 73d7f322c46679249b44566da0cd72a5, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7860437610424966822, guid: 73d7f322c46679249b44566da0cd72a5, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7860437610424966822, guid: 73d7f322c46679249b44566da0cd72a5, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7860437610424966822, guid: 73d7f322c46679249b44566da0cd72a5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7860437610424966822, guid: 73d7f322c46679249b44566da0cd72a5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7860437610424966822, guid: 73d7f322c46679249b44566da0cd72a5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 73d7f322c46679249b44566da0cd72a5, type: 3}
 --- !u!1001 &866658189
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2104,8 +1956,8 @@ RectTransform:
   m_Children:
   - {fileID: 2122618413}
   - {fileID: 952812584}
-  - {fileID: 499407585}
   - {fileID: 866658190}
+  - {fileID: 499407585}
   m_Father: {fileID: 2020158796}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2945,7 +2797,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3420781802605741346, guid: 85401092cdd90aa43be1dbbdff0c5ddd, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3420781802605741346, guid: 85401092cdd90aa43be1dbbdff0c5ddd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3138,6 +2990,10 @@ PrefabInstance:
     - target: {fileID: 3222355890657862401, guid: 73d7f322c46679249b44566da0cd72a5, type: 3}
       propertyPath: m_Name
       value: QuizManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218226000041614452, guid: 73d7f322c46679249b44566da0cd72a5, type: 3}
+      propertyPath: nextLevelText
+      value: Level 2
       objectReference: {fileID: 0}
     - target: {fileID: 4218226000041614452, guid: 73d7f322c46679249b44566da0cd72a5, type: 3}
       propertyPath: 'questionsInput.Array.data[0]'

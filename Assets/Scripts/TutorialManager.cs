@@ -25,10 +25,11 @@ public class TutorialManager : MonoBehaviour
     private string[] tutorialSteps = {
         "Welcome to the tutorial! In this game, you will learn how to identify cancer cells from healthy cells,just like how our bodies do!",
         "Your job is to man this checkpoint, and check each cell's documents to make sure they check out. Their documents contain details about the cell.",
+        "The red booklet contains information on what to look out for. The bottom right question mark will give a more detailed description.",
         "This is a cell. Sometimes you can tell just by looking that they are cancerous, but it is always good to look at their documents to make sure. Click the spawn documents button to look at this cell's information.",
         "This is a set of documents. You can drag them around. Check the information on it carefully against your checklist to decide if the cell is cancerous or healthy.",
         "Use the 'Allow' button to let a healthy cell pass through, or 'Kill' to eliminate a cancerous cell.",
-        "In the top right is the scoreboard. It tracks the number of healthy and cancer cells you’ve killed or allowed. Keep an eye on it to track your progress!",
+        "In the top right is the scoreboard. It tracks the number cancer cells you’ve killed. The healthbar tracks if you mistakenly let in a cancer cell or killed a healthy one. Keep an eye on it to track your progress!",
         "Congrats on finishing the tutorial! Click close to keep playing with help, or next to move on to the next level."
     };
 
@@ -54,14 +55,22 @@ public class TutorialManager : MonoBehaviour
             {
                 currentPopup.AddComponent<DragObject>();
             }
-
             tutorialText = currentPopup.GetComponentInChildren<TMPro.TextMeshProUGUI>();
             nextButton = (GameObject.FindGameObjectWithTag("NextButton")).GetComponent<Button>();
             closeButton = (GameObject.FindGameObjectWithTag("CloseButton")).GetComponent<Button>();
 
             nextButton.onClick.AddListener(OnNextButtonClicked);
             closeButton.onClick.AddListener(CloseTutorial);
-    }
+        }
+
+        if (stepIndex == 2 || stepIndex == 3 || stepIndex == 5  )
+        {
+            nextButton.gameObject.SetActive(false);
+        }
+        else
+        {
+            nextButton.gameObject.SetActive(true);
+        }
 
         if (stepIndex < tutorialSteps.Length)
         {
@@ -84,6 +93,7 @@ public class TutorialManager : MonoBehaviour
             }
 
             //Update the text for the current step
+            Debug.Log(stepIndex);
             tutorialText.text = tutorialSteps[stepIndex];
         }
         else
@@ -105,15 +115,14 @@ public class TutorialManager : MonoBehaviour
     {
         stepIndex++;
         //if stepIndex <=1 
-        if(stepIndex> 6)
+        if(stepIndex> 7)
         {
-            SceneManager.LoadScene("LevelForMidterm");
+            SceneManager.LoadScene("Level 1");
         }
-        if(stepIndex <= 1 || stepIndex == 6)
+        else //if(stepIndex <= 1 || stepIndex == 6)
         {
             ShowNextPopup();
-        }
-        
+        }        
     }
 
     //Close the tutorial and cleanup
@@ -128,28 +137,28 @@ public class TutorialManager : MonoBehaviour
     public void TriggerCellSpawnTutorial()
     {
         //This is when the first cell spawns
-        stepIndex = 2;  
+        stepIndex = 3;  
         ShowNextPopup();
     }
 
     //Write a method to trigger cell document tutorial
     public void TriggerDocumentTutorial()
     {
-        stepIndex = 3;
+        stepIndex = 4;
         ShowNextPopup();
     }
 
     public void TriggerScoreboardTutorial()
     {
         //After player makes a decision
-        stepIndex = 5;
+        stepIndex = 6;
         ShowNextPopup();
     }
 
     public void TriggerFinalStep()
     {
         //After showing scoreboard
-        stepIndex = 6;
+        stepIndex = 7;
         ShowNextPopup();
     }
 

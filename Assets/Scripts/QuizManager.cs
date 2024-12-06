@@ -4,9 +4,14 @@ using System.ComponentModel;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class QuizManager : MonoBehaviour
 {
+    public GameObject startQuizButton;
+    public GameObject questionText;
+    public GameObject nextLevelButton;
+    public string nextLevelText;
     public Button[] answerButtons;
     public TextMeshProUGUI questionDisplay;
     [Header("Format questions as follows: question\\correctAnswer\\incorrectAnswer1\\incorrectAnswer2\\incorrectAnswer3")]
@@ -53,13 +58,14 @@ public class QuizManager : MonoBehaviour
         currentQuestion = -1;
         wasCorrect = new bool[questionsInput.Count];
         ShowQuestion();
+        startQuizButton.SetActive(false);
+        questionText.SetActive(true);
         for (int i = 0; i < answerButtons.Length; i++)
         {
             Debug.LogWarning("Update this to just hit the quizparent object");
             answerButtons[i].gameObject.SetActive(true);
         }
     }
-
     public void ShowQuestion()
     {
         if (!isQuizing) return;
@@ -143,5 +149,10 @@ public class QuizManager : MonoBehaviour
             if (wasCorrect[i]) { numCorrect++; }
         }
         questionDisplay.text = "you got " + numCorrect + "/" + wasCorrect.Length + " questions correct";
+        nextLevelButton.SetActive(true);
+    }
+    public void NextLevel()
+    {
+        SceneManager.LoadScene(nextLevelText);
     }
 }

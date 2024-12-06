@@ -149,6 +149,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3790516486116178104, guid: b01effa4da4e5144f99987d92f3c8611, type: 3}
     - target: {fileID: 7793135454257526071, guid: 0aa51c1202e32ba4e9c56051ea766337, type: 3}
+      propertyPath: mistakesAllowed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7793135454257526071, guid: 0aa51c1202e32ba4e9c56051ea766337, type: 3}
       propertyPath: DocumentTemplate
       value: 
       objectReference: {fileID: 8699486129657160941, guid: d7c181ab399e65648b4348301a81a077, type: 3}
@@ -156,6 +160,10 @@ PrefabInstance:
       propertyPath: cancerCellSprite
       value: 
       objectReference: {fileID: 1127606810288918557, guid: 308f6d552b67ef74eab72bfeba113012, type: 3}
+    - target: {fileID: 7793135454257526071, guid: 0aa51c1202e32ba4e9c56051ea766337, type: 3}
+      propertyPath: cancerKillsNeeded
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8615625728359005867, guid: 0aa51c1202e32ba4e9c56051ea766337, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1365,8 +1373,8 @@ RectTransform:
   m_Children:
   - {fileID: 2122618413}
   - {fileID: 1712577725}
-  - {fileID: 1421542108}
   - {fileID: 986833852}
+  - {fileID: 1421542108}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
